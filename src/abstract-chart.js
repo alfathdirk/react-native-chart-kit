@@ -34,10 +34,10 @@ class AbstractChart extends Component {
       return (
         <Text
           key={Math.random()}
-          x={(width / labelsCount) - yLabelsOffset}
+          x={((width + 250 )/ labelsCount) - yLabelsOffset}
           textAnchor="end"
           y={(height * 3 / 4) - (height / 4 * i) + (paddingTop / 2)}
-          fontSize={12}
+          fontSize={8}
           fill={this.props.chartConfig.color(0.5)}
         >{(((Math.max(...data) - Math.min(...data)) / 4 * i) + Math.min(...data)).toFixed(2)}
         </Text>
@@ -47,7 +47,7 @@ class AbstractChart extends Component {
 
   renderVerticalLabels = config => {
     const { labels, width, height, paddingRight, paddingTop, horizontalOffset = 0 } = config
-    const fontSize = 12
+    const fontSize = 8
     return labels.map((label, i) => {
       return (
         <Text
@@ -55,6 +55,8 @@ class AbstractChart extends Component {
           x={((width - paddingRight) / labels.length * (i + 1)) + horizontalOffset}
           y={(height * 3 / 4) + paddingTop + (fontSize / 2)}
           fontSize={fontSize}
+          dx="-40"
+          dy="45 -5 -5 -5 -5 -5 -5 -5 -5 -5"
           fill={this.props.chartConfig.color(0.5)}
           textAnchor="middle"
         >{label}

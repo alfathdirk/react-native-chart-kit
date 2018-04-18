@@ -109,14 +109,14 @@ class LineChart extends AbstractChart {
     return (
       <View style={style}>
         <Svg
-          height={height}
+          height={300}
           width={width}
         >
           {this.renderDefs({
             ...config,
             ...this.props.chartConfig
           })}
-          <Rect width="100%" height={height} rx={this.props.style.borderRadius} ry={this.props.style.borderRadius} fill="url(#backgroundGradient)"/>
+          <Rect width="100%" height={300} rx={this.props.style.borderRadius} ry={this.props.style.borderRadius} fill="url(#backgroundGradient)"/>
           {this.renderHorizontalLines({
             ...config,
             count: 4,
